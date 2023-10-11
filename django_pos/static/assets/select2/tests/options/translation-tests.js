@@ -81,7 +81,7 @@ test('partial dictionaries can be passed', function (assert) {
 
   assert.equal(
     translations.get('noResults')(),
-    'No results found',
+    'Nenhum resultado encontrado',
     'You can still get English translations for keys not passed in'
   );
 });
@@ -119,7 +119,7 @@ test('partial dictionaries can be combined with defaults', function (assert) {
 
   assert.equal(
     translations.get('noResults')(),
-    'No results found',
+    'Nenhum resultado encontrado',
     'You can still get English translations for keys not passed in'
   );
 });
@@ -158,7 +158,7 @@ test('partial dictionaries can used in fallback chains', function (assert) {
 
   assert.equal(
     translations.get('noResults')(),
-    'No results found',
+    'Nenhum resultado encontrado',
     'You can still get English translations for keys not passed in'
   );
 });

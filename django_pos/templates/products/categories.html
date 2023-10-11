@@ -1,7 +1,7 @@
 {% extends "pos/base.html" %}
 {% load static %}
 <!-- Page title  -->
-{% block title %}Product categories{% endblock title %}
+{% block title %}Categorias de produtos{% endblock title %}
 
 <!-- Specific Page CSS goes HERE  -->
 {% block stylesheets %}
@@ -11,7 +11,7 @@
 {% endblock stylesheets %}
 
 <!-- Page Heading -->
-{% block heading %}Product categories{% endblock heading %}
+{% block heading %}Categorias de produtos{% endblock heading %}
 
 <!-- Page content  -->
 {% block content %}
@@ -21,7 +21,7 @@
         <a href="{% url 'products:categories_add' %}">
             <button type="button" class="btn btn-success font-weight-bold">
                     <i class="fas fa-plus mr-2"></i>
-                    Create new category
+                    Criar nova categoria
             </button>
         </a>
     </div>
@@ -29,7 +29,7 @@
     <!-- DataTable -->
     <div class="card shadow mb-12">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Categories</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Categorias</h6>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -38,10 +38,10 @@
                         <tr>
                             <th>ID</th>
                             <th style="width:7%">#</th>
-                            <th>Name</th>
-                            <th>Description</th>
+                            <th>Nome</th>
+                            <th>Descrição</th>
                             <th class="text-center" style="width:15%">Status</th>
-                            <th class="text-center" style="width:15%">Actions</th>
+                            <th class="text-center" style="width:15%">Ações</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -63,7 +63,7 @@
                             <td class="text-center">
                                 <!--Update-->
                                 <a href="{% url 'products:categories_update' c.id %}" class="text-decoration-none">
-                                    <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="tooltip" title="Update category">
+                                    <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="tooltip" title="Atualizar categoria">
                                         <i class="fas fa-pen"></i>
                                     </button>
                                 </a>
@@ -80,7 +80,7 @@
                                     <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Delete category</h5>
+                                            <h5 class="modal-title" id="exampleModalLabel">Apagar categoria</h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
@@ -89,9 +89,9 @@
                                             Are you sure you want to delete the category: {{c.name}}
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                                             <a id="updateThisURL" href="{% url 'products:categories_delete' c.id %}" class="text-decoration-none">
-                                                <button type="button"  class="btn btn-danger">Delete</button>
+                                                <button type="button"  class="btn btn-danger">Apagar</button>
                                             </a>
                                         </div>
                                     </div>
@@ -133,8 +133,8 @@
             buttons: [
                 {
                 extend: 'print',
-                text: 'Print <i class="fas fa-file ml-2"></i>',
-                titleAttr: 'Print',
+                text: 'Imprimir <i class="fas fa-file ml-2"></i>',
+                titleAttr: 'Imprimir',
                 className: 'btn btn-info',
                 exportOptions: {
                     columns: [ 0, 1, 2, 3 ,4 ]
@@ -142,8 +142,8 @@
                 },
                 {
                     extend: 'excelHtml5',
-                    text: 'Download Excel <i class="fas fa-file-excel ml-2"></i>',
-                    titleAttr: 'Download Excel',
+                    text: 'Baixar Excel <i class="fas fa-file-excel ml-2"></i>',
+                    titleAttr: 'Baixar Excel',
                     className: 'btn btn-success ml-2',
                     exportOptions: {
                         columns: [ 0, 1, 2, 3 ,4 ]
@@ -151,8 +151,8 @@
                 },
                 {
                     extend: 'pdfHtml5',
-                    text: 'Download PDF <i class="fas fa-file-pdf ml-2"></i>',
-                    titleAttr: 'Download PDF',
+                    text: 'Baixar PDF <i class="fas fa-file-pdf ml-2"></i>',
+                    titleAttr: 'Baixar PDF',
                     className: 'btn btn-danger ml-2',
                     download: 'open',
                     orientation: 'vertical',
@@ -234,7 +234,7 @@
     category_id = row_data[0];
     category_name = row_data[2]
     new_delete_url  = 'categories/delete/' + category_id;
-    document.getElementById("updateThisText").innerHTML = "Are you sure you want to delete the category:  " + category_name + "?";
+    document.getElementById("updateThisText").innerHTML = "Você tem certeza que deseja apagar a categoria:  " + category_name + "?";
     document.getElementById("updateThisURL").href=new_delete_url;
     });
 </script>

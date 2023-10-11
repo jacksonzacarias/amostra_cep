@@ -1,22 +1,22 @@
 {% extends "pos/base.html" %}
 
 <!-- Page title  -->
-{% block title %}Add category{% endblock title %}
+{% block title %}Adicionar categoria{% endblock title %}
 
 <!-- Specific Page CSS goes HERE  -->
 {% block stylesheets %}{% endblock stylesheets %}
 
 <!-- Page Heading -->
-{% block heading %}Add category{% endblock heading %}
+{% block heading %}Adicionar categoria{% endblock heading %}
 
 <!-- Page content  -->
 {% block content %}
-<!--Go back-->
+<!--Voltar-->
 <div class="row ml-0 mb-3">
     <a href="{% url 'products:categories_list' %}">
         <button type="button" class="btn btn-info font-weight-bold">
             <i class="fas fa-long-arrow-alt-left mr-2"></i>
-            Go back
+            Voltar
         </button>
     </a>
 </div>
@@ -29,11 +29,11 @@
                 {% csrf_token %}
                 <div class="form-row">
                     <div class="form-group col-md-8">
-                        <label for="inputDescription">Name</label>
-                        <input type="text" class="form-control" name="name" placeholder="Drinks..." required>
+                        <label for="inputDescription">Nome</label>
+                        <input type="text" class="form-control" name="name" placeholder="Bebidas..." required>
                     </div>
                     <div class="form-group col-md-4">
-                        <label for="state">State</label>
+                        <label for="state">Estado</label>
                         <select name="state" class="form-control" required>
                             {% for status in category_status %}
                             <option value="{{status.0}}">{{status.1}}</option>
@@ -44,12 +44,12 @@
 
                 <div class="form-row">
                     <div class="form-group col-md-12">
-                        <label for="inputDescription">Description</label>
-                        <input type="text" name="description" class="form-control" placeholder="Drinks and beverages.." required>
+                        <label for="inputDescription">Descrição</label>
+                        <input type="text" name="description" class="form-control" placeholder="Bebidas.." required>
                     </div>
                 </div>
                
-                <button type="submit" class="btn btn-success font-weight-bold">Create category</button>
+                <button type="submit" class="btn btn-success font-weight-bold">Criar categoria</button>
                
             </form>
         </div>

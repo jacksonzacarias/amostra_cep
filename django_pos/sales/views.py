@@ -68,11 +68,11 @@ def SalesAddView(request):
                 print("Sale saved")
 
                 messages.success(
-                    request, 'Sale created succesfully!', extra_tags="success")
+                    request, 'Venda criada com sucesso!', extra_tags="success")
 
             except Exception as e:
                 messages.success(
-                    request, 'There was an error during the creation!', extra_tags="danger")
+                    request, 'Houve um erro durante the creation!', extra_tags="danger")
 
         return redirect('sales:sales_list')
 

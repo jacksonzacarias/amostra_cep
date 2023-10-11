@@ -1,7 +1,7 @@
 {% extends "pos/base.html" %}
 {% load static %}
 <!-- Page title  -->
-{% block title %}Add sale{% endblock title %}
+{% block title %}Adicionar venda{% endblock title %}
 
 <!-- Specific Page CSS goes HERE  -->
 {% block stylesheets %}
@@ -15,16 +15,16 @@
 {% endblock stylesheets %}
 
 <!-- Page Heading -->
-{% block heading %}Add sale{% endblock heading %}
+{% block heading %}Adicionar venda{% endblock heading %}
 
 <!-- Page content  -->
 {% block content %}
-<!--Go back-->
+<!--Voltar-->
 <div class="row ml-0 mb-3">
     <a href="{% url 'sales:sales_list' %}">
         <button type="button" class="btn btn-info font-weight-bold">
             <i class="fas fa-long-arrow-alt-left mr-2"></i>
-            Go back
+            Voltar
         </button>
     </a>
 </div>
@@ -38,12 +38,12 @@
                     <!--Left column-->
                     <div class="col-md-9 pl-0">
                         <div class="card card-secondary">
-                            <div class="card-header">Sale products</div>
+                            <div class="card-header">Venda de produtos</div>
                             
                             <div class="card-body">
                                 <!--Search product-->
                                 <div class="form-group">
-                                    <label>Search product:</label>
+                                    <label>Procurar produto:</label>
                                     <div class="input-group">
                                         <select class="form-control select2" name="searchbox_products" id="searchbox_products"></select>
                                     </div>
@@ -52,7 +52,7 @@
 
                                 <!--Delete all products from sale-->
                                 <button type="button" class="mb-4 btn btn-danger btn-sm deleteAll">
-                                    Delete all products <i class="ml-1 fas fa-trash-alt fa-xs"></i>
+                                    Apagar todos os produtos <i class="ml-1 fas fa-trash-alt fa-xs"></i>
                                 </button>
                                 <!--End Delete all products from sale-->
 
@@ -62,11 +62,11 @@
                                         <thead>
                                             <tr>
                                                 <th>#</th>
-                                                <th>Name</th>
-                                                <th>Price</th>
-                                                <th>Quantity</th>
+                                                <th>Nome</th>
+                                                <th>Preço</th>
+                                                <th>Quantidade</th>
                                                 <th>Total</th>
-                                                <th class="text-center">Delete</th>
+                                                <th class="text-center">Apagar</th>
                                                 </tr>
                                             </thead>
                                         <tbody>
@@ -82,13 +82,13 @@
                     <!--Righ column-->
                     <div class="col-md-3 pr-0">
                         <div class="card card-secondary">
-                            <div class="card-header">Sale details</div>
+                            <div class="card-header">Detalhes da venda</div>
                             <div class="card-body">
                                 {% csrf_token %}
                                 <div class="form-group">
-                                    <label for="customer">Customer</label>
+                                    <label for="customer">Cliente</label>
                                     <select name="customer" class="form-control" id="searchbox_customers" required>
-                                        <option value="" selected disabled hidden>Select the customer</option>
+                                        <option value="" selected disabled hidden>Selecione o cliente</option>
                                         {% for customer in customers %}
                                         <option value="{{customer.value}}">{{customer.label}}</option>
                                         {% endfor %}
@@ -100,31 +100,31 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label>Tax Inclusive (%)</label>
+                                    <label>Taxa Incluída (%)</label>
                                     <div class="input-group">
                                         <input name="tax_percentage" class="form-control" value=0 required>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label>Tax Amount</label>
+                                    <label>Valor da Taxa</label>
                                     <div class="input-group">
                                         <input name="tax_amount" class="form-control" required>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label>Grand Total</label>
+                                    <label>Total Geral</label>
                                     <div class="input-group">
                                         <input name="grand_total" class="form-control" required>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label>Amount payed</label>
+                                    <label>Valor pago</label>
                                     <div class="input-group">
                                         <input name="amount_payed" class="form-control" required>
                                     </div>
                                 </div>
 
-                                <button type="submit" class="btn btn-success font-weight-bold">Create sale</button>
+                                <button type="submit" class="btn btn-success font-weight-bold">Criar venda</button>
                             </div>
                             <!--End card-body-->
                     </div>
@@ -290,7 +290,7 @@
 
         //Select2 customers
         $('#searchbox_customers').select2({
-            placeholder: "Select a customer",
+            placeholder: "Selecione um cliente",
             allowClear: true,
         });
 
@@ -397,7 +397,7 @@
 
         $('#searchbox_products').select2({
             delay: 250,
-            placeholder: 'Search a product',
+            placeholder: 'Procure um produto',
             minimumInputLength: 1,
             allowClear: true,
             templateResult: template_product_searchbox,

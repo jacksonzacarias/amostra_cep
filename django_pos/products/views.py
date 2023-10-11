@@ -44,12 +44,12 @@ def CategoriesAddView(request):
             # If it doesn't exists save it
             new_category.save()
 
-            messages.success(request, 'Category: ' +
-                             attributes["name"] + ' created succesfully!', extra_tags="success")
+            messages.success(request, 'Categoria: ' +
+                             attributes["name"] + ' criada com sucesso!', extra_tags="success")
             return redirect('products:categories_list')
         except Exception as e:
             messages.success(
-                request, 'There was an error during the creation!', extra_tags="danger")
+                request, 'Houve um erro durante a criação!', extra_tags="danger")
             print(e)
             return redirect('products:categories_add')
 
@@ -69,7 +69,7 @@ def CategoriesUpdateView(request, category_id):
         category = Category.objects.get(id=category_id)
     except Exception as e:
         messages.success(
-            request, 'There was an error trying to get the category!', extra_tags="danger")
+            request, 'Houve um erro ao tentar selecionar a categoria!', extra_tags="danger")
         print(e)
         return redirect('products:categories_list')
 
@@ -92,7 +92,7 @@ def CategoriesUpdateView(request, category_id):
 
             # Check if a category with the same attributes exists
             if Category.objects.filter(**attributes).exists():
-                messages.error(request, 'Category already exists!',
+                messages.error(request, 'Categoria ja existente!',
                                extra_tags="warning")
                 return redirect('products:categories_add')
 
@@ -102,12 +102,12 @@ def CategoriesUpdateView(request, category_id):
 
             category = Category.objects.get(id=category_id)
 
-            messages.success(request, '¡Category: ' + category.name +
-                             ' updated successfully!', extra_tags="success")
+            messages.success(request, '¡Categoria: ' + category.name +
+                             ' atualizado com sucesso!', extra_tags="success")
             return redirect('products:categories_list')
         except Exception as e:
             messages.success(
-                request, 'There was an error during the elimination!', extra_tags="danger")
+                request, 'Houve um erro durante a eliminação!', extra_tags="danger")
             print(e)
             return redirect('products:categories_list')
 
@@ -124,12 +124,12 @@ def CategoriesDeleteView(request, category_id):
         # Get the category to delete
         category = Category.objects.get(id=category_id)
         category.delete()
-        messages.success(request, '¡Category: ' + category.name +
-                         ' deleted!', extra_tags="success")
+        messages.success(request, '¡Categoria: ' + category.name +
+                         ' apagado!', extra_tags="success")
         return redirect('products:categories_list')
     except Exception as e:
         messages.success(
-            request, 'There was an error during the elimination!', extra_tags="danger")
+            request, 'Houve um erro durante a eliminação!', extra_tags="danger")
         print(e)
         return redirect('products:categories_list')
 
@@ -165,7 +165,7 @@ def ProductsAddView(request):
 
         # Check if a product with the same attributes exists
         if Product.objects.filter(**attributes).exists():
-            messages.error(request, 'Product already exists!',
+            messages.error(request, 'Produto ja existente!',
                            extra_tags="warning")
             return redirect('products:products_add')
 
@@ -176,12 +176,12 @@ def ProductsAddView(request):
             # If it doesn't exists save it
             new_product.save()
 
-            messages.success(request, 'Product: ' +
-                             attributes["name"] + ' created succesfully!', extra_tags="success")
+            messages.success(request, 'Produto: ' +
+                             attributes["name"] + ' criado com sucesso!', extra_tags="success")
             return redirect('products:products_list')
         except Exception as e:
             messages.success(
-                request, 'There was an error during the creation!', extra_tags="danger")
+                request, 'Houve um erro durante a criação!', extra_tags="danger")
             print(e)
             return redirect('products:products_add')
 
@@ -201,7 +201,7 @@ def ProductsUpdateView(request, product_id):
         product = Product.objects.get(id=product_id)
     except Exception as e:
         messages.success(
-            request, 'There was an error trying to get the product!', extra_tags="danger")
+            request, 'Houve um erro ao tentar selecionar o produto!', extra_tags="danger")
         print(e)
         return redirect('products:products_list')
 
@@ -227,7 +227,7 @@ def ProductsUpdateView(request, product_id):
 
             # Check if a product with the same attributes exists
             if product.objects.filter(**attributes).exists():
-                messages.error(request, 'Product already exists!',
+                messages.error(request, 'Produto já existente!',
                                extra_tags="warning")
                 return redirect('products:products_add')
 
@@ -237,12 +237,12 @@ def ProductsUpdateView(request, product_id):
 
             product = Product.objects.get(id=product_id)
 
-            messages.success(request, '¡Product: ' + product.name +
-                             ' updated successfully!', extra_tags="success")
+            messages.success(request, '¡Produto: ' + product.name +
+                             ' atualizado com sucesso!', extra_tags="success")
             return redirect('products:products_list')
         except Exception as e:
             messages.success(
-                request, 'There was an error during the update!', extra_tags="danger")
+                request, 'Houve um erro durante a atualização!', extra_tags="danger")
             print(e)
             return redirect('products:products_list')
 
@@ -259,12 +259,12 @@ def ProductsDeleteView(request, product_id):
         # Get the product to delete
         product = Product.objects.get(id=product_id)
         product.delete()
-        messages.success(request, '¡Product: ' + product.name +
-                         ' deleted!', extra_tags="success")
+        messages.success(request, '¡Produto: ' + product.name +
+                         ' apagado!', extra_tags="success")
         return redirect('products:products_list')
     except Exception as e:
         messages.success(
-            request, 'There was an error during the elimination!', extra_tags="danger")
+            request, 'Houve um erro durante a eliminação!', extra_tags="danger")
         print(e)
         return redirect('products:products_list')
 

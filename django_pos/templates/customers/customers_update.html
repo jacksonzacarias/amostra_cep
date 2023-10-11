@@ -1,22 +1,22 @@
 {% extends "pos/base.html" %}
 
 <!-- Page title  -->
-{% block title %}Update customer{% endblock title %}
+{% block title %}Atualizar cliente{% endblock title %}
 
 <!-- Specific Page CSS goes HERE  -->
 {% block stylesheets %}{% endblock stylesheets %}
 
 <!-- Page Heading -->
-{% block heading %}Update customer{% endblock heading %}
+{% block heading %}Atualizar cliente{% endblock heading %}
 
 <!-- Page content  -->
 {% block content %}
-<!--Go back-->
+<!--Voltar-->
 <div class="row ml-0 mb-3">
     <a href="{% url 'customers:customers_list' %}">
         <button type="button" class="btn btn-info font-weight-bold">
             <i class="fas fa-long-arrow-alt-left mr-2"></i>
-            Go back
+            Voltar
         </button>
     </a>
 </div>
@@ -28,11 +28,11 @@
                 {% csrf_token %}
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label for="inputDescription">First Name</label>
+                        <label for="inputDescription">Nome</label>
                         <input type="text" class="form-control" name="first_name" value="{{customer.first_name}}" required>
                     </div>
                     <div class="form-group col-md-6">
-                        <label for="inputDescription">Last Name</label>
+                        <label for="inputDescription">Sobrenome</label>
                         <input type="text" class="form-control" name="last_name" value="{{customer.last_name}}" required>
                     </div>
                 </div>
@@ -43,20 +43,20 @@
                         <input type="email" name="email" class="form-control" value="{{customer.email}}" required>
                     </div>
                     <div class="form-group col-md-6">
-                        <label for="inputDescription">Phone number</label>
+                        <label for="inputDescription">Telefone</label>
                         <input type="text" name="phone" class="form-control" value="{{customer.phone}}" required>
                     </div>
                 </div>
 
                 <div class="form-row">
                     <div class="form-group col-md-12">
-                        <label for="inputDescription">Address</label>
+                        <label for="inputDescription">Endereço</label>
                         <textarea name="address" class="form-control" rows="2" required>{{customer.address}}</textarea>
                     </div>
                 </div>
                 
 
-                <button type="submit" class="btn btn-success font-weight-bold">Update customer</button>
+                <button type="submit" class="btn btn-success font-weight-bold">Atualizar cliente</button>
                
             </form>
         </div>

@@ -33,7 +33,7 @@ def CustomersAddView(request):
 
         # Check if a customer with the same attributes exists
         if Customer.objects.filter(**attributes).exists():
-            messages.error(request, 'Customer already exists!',
+            messages.error(request, 'Cliente já existente!',
                            extra_tags="warning")
             return redirect('customers:customers_add')
 
@@ -44,12 +44,12 @@ def CustomersAddView(request):
             # If it doesn't exists save it
             new_customer.save()
 
-            messages.success(request, 'Customer: ' + attributes["first_name"] + " " +
-                             attributes["last_name"] + ' created succesfully!', extra_tags="success")
+            messages.success(request, 'Cliente: ' + attributes["first_name"] + " " +
+                             attributes["last_name"] + ' criado com sucesso!', extra_tags="success")
             return redirect('customers:customers_list')
         except Exception as e:
             messages.success(
-                request, 'There was an error during the creation!', extra_tags="danger")
+                request, 'Houve um erro durante a criação!', extra_tags="danger")
             print(e)
             return redirect('customers:customers_add')
 
@@ -69,7 +69,7 @@ def CustomersUpdateView(request, customer_id):
         customer = Customer.objects.get(id=customer_id)
     except Exception as e:
         messages.success(
-            request, 'There was an error trying to get the customer!', extra_tags="danger")
+            request, 'Houve um erro ao selecionar o cliente!', extra_tags="danger")
         print(e)
         return redirect('customers:customers_list')
 
@@ -93,7 +93,7 @@ def CustomersUpdateView(request, customer_id):
 
             # Check if a customer with the same attributes exists
             if Customer.objects.filter(**attributes).exists():
-                messages.error(request, 'Customer already exists!',
+                messages.error(request, 'Cliente já existente!',
                                extra_tags="warning")
                 return redirect('customers:customers_add')
 
@@ -103,12 +103,12 @@ def CustomersUpdateView(request, customer_id):
 
             customer = Customer.objects.get(id=customer_id)
 
-            messages.success(request, '¡Customer: ' + customer.get_full_name() +
-                             ' updated successfully!', extra_tags="success")
+            messages.success(request, '¡Cliente: ' + customer.get_full_name() +
+                             ' atualizado com sucesso!', extra_tags="success")
             return redirect('customers:customers_list')
         except Exception as e:
             messages.success(
-                request, 'There was an error during the update!', extra_tags="danger")
+                request, 'Houve um erro durante the update!', extra_tags="danger")
             print(e)
             return redirect('customers:customers_list')
 
@@ -125,11 +125,11 @@ def CustomersDeleteView(request, customer_id):
         # Get the customer to delete
         customer = Customer.objects.get(id=customer_id)
         customer.delete()
-        messages.success(request, '¡Customer: ' + customer.get_full_name() +
-                         ' deleted!', extra_tags="success")
+        messages.success(request, '¡Cliente: ' + customer.get_full_name() +
+                         ' apagado!', extra_tags="success")
         return redirect('customers:customers_list')
     except Exception as e:
         messages.success(
-            request, 'There was an error during the elimination!', extra_tags="danger")
+            request, 'Houve um erro durante a eliminação!', extra_tags="danger")
         print(e)
         return redirect('customers:customers_list')

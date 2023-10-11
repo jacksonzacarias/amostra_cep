@@ -4,8 +4,8 @@ from django.forms import model_to_dict
 
 class Category(models.Model):
     STATUS_CHOICES = (  # new
-        ("ACTIVE", "Active"),
-        ("INACTIVE", "Inactive")
+        ("ACTIVE", "Ativo"),
+        ("INACTIVE", "Inativo")
     )
 
     name = models.CharField(max_length=256)
@@ -27,8 +27,8 @@ class Category(models.Model):
 
 class Product(models.Model):
     STATUS_CHOICES = (  # new
-        ("ACTIVE", "Active"),
-        ("INACTIVE", "Inactive")
+        ("ACTIVE", "Ativo"),
+        ("INACTIVE", "Inativo")
     )
 
     name = models.CharField(max_length=256)
